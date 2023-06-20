@@ -14,9 +14,17 @@ public class StudentDAOImpl implements StudentDAO{
     @Autowired
     private SessionFactory factory;
 
+    @Override
     public List<Student> findAllStudents() {
         Session session = factory.getCurrentSession();
 
         return session.createQuery("from Student", Student.class).getResultList();
+    }
+
+    @Override
+    public void saveOrUpdateStudent(Student student) {
+        Session session = factory.getCurrentSession();
+
+        session.saveOrUpdate(student);
     }
 }

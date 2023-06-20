@@ -14,8 +14,15 @@ public class StudentServiceImpl implements StudentService{
     @Autowired
     private StudentDAO dao;
 
+    @Override
     @Transactional
     public List<Student> findAllStudents() {
         return dao.findAllStudents();
+    }
+
+    @Override
+    @Transactional
+    public void saveOrUpdateStudent(Student student) {
+        dao.saveOrUpdateStudent(student);
     }
 }

@@ -5,6 +5,7 @@ import by.yudchits.uiip.crud_service.service.StudentService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import java.util.List;
@@ -22,5 +23,20 @@ public class MyController {
         model.addAttribute("students", students);
 
         return "all-students-view";
+    }
+
+    @RequestMapping("/add-student")
+    public String addStudent(Model model){
+
+        model.addAttribute("student", new Student());
+
+        return "add-update-student-view";
+    }
+
+    @RequestMapping("/save-update-student")
+    public String saveStudent(@ModelAttribute("student") Student student){
+        service.saveOrUpdateStudent(student);
+
+        return "redirect:/";
     }
 }

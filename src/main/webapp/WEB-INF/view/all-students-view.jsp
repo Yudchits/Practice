@@ -31,5 +31,9 @@
     </tbody>
 </table>
 
+<br><br>
+
+<input type="button" value="Дадаць" onclick="window.location.href='add-student'">
+
 </body>
 </html>
