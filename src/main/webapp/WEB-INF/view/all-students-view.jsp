@@ -33,7 +33,7 @@
 
 <br><br>
 
-<input type="button" value="Дадаць" onclick="window.location.href='add-student'">
+<input type="button" value="Add" onclick="window.location.href='add-student'">
 
 </body>
 </html>
