@@ -13,7 +13,7 @@ public class StudentDAOImpl implements StudentDAO{
 
     @Autowired
     private SessionFactory factory;
-    
+
     public List<Student> findAllStudents() {
         Session session = factory.getCurrentSession();
 
