@@ -1,6 +1,8 @@
 package by.yudchits.uiip.crud_service.entity;
 
+import org.hibernate.validator.constraints.Length;
 import javax.persistence.*;
+import javax.validation.constraints.*;
 
 @Entity
 @Table(name = "students")
@@ -10,15 +12,23 @@ public class Student {
     @Column(name = "id")
     private long id;
 
+    @NotBlank(message = "The field must be specified")
+    @Length(min = 2, max = 25, message = "Size must be between 2 and 25 characters")
     @Column(name = "name")
     private String name;
 
+    @NotBlank(message = "The field must be specified")
+    @Length(min = 2, max = 25, message = "Size must be between 2 and 25 characters")
     @Column(name = "surname")
     private String surname;
 
+    @Digits(integer = 2,fraction = 2, message = "The field can have only digits")
+    @Min(value = 0, message = "An average grade cannot be less than 0")
+    @Max(value = 10, message = "An average grade cannot be more than 10")
     @Column(name = "avg_grade")
     private double averageGrade;
 
+    @Pattern(regexp = "^([a-z0-9_-]+\\.)*[a-z0-9_-]+@[a-z0-9_-]+(\\.[a-z0-9_-]+)*\\.[a-z]{2,6}$", message = "Invalid email address")
     @Column(name = "email")
     private String email;
 
