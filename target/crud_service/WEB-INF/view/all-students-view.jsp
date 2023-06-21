@@ -16,17 +16,29 @@
             <th>Surname</th>
             <th>Average grade</th>
             <th>Email</th>
+            <th>Operations</th>
         </tr>
     </thead>
 
     <tbody>
         <c:forEach var="student" items="${students}">
+
+<%--            Just a reference that will not display--%>
+            <c:url var="update_button" value="/update-details">
+                <c:param name="id" value="${student.id}"/>
+            </c:url>
+
             <tr>
                 <td>${student.name}</td>
                 <td>${student.surname}</td>
                 <td>${student.averageGrade}</td>
                 <td>${student.email}</td>
+                <td>
+                    <input type="button" value="Update"
+                    onclick="window.location.href='${update_button}'">
+                </td>
             </tr>
+
         </c:forEach>
     </tbody>
 </table>

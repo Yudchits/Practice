@@ -15,6 +15,13 @@ public class StudentDAOImpl implements StudentDAO{
     private SessionFactory factory;
 
     @Override
+    public Student findById(long id) {
+        Session session = factory.getCurrentSession();
+
+        return session.get(Student.class, id);
+    }
+
+    @Override
     public List<Student> findAllStudents() {
         Session session = factory.getCurrentSession();
 

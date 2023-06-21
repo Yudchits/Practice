@@ -16,6 +16,12 @@ public class StudentServiceImpl implements StudentService{
 
     @Override
     @Transactional
+    public Student findById(long id) {
+        return dao.findById(id);
+    }
+
+    @Override
+    @Transactional
     public List<Student> findAllStudents() {
         return dao.findAllStudents();
     }

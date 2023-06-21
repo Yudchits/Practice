@@ -10,6 +10,8 @@
 
 <form:form action="save-update-student" modelAttribute="student">
 
+    <form:hidden path="id"/>
+
     <label id="name">
         Name: <form:input path="name" id="name"/>
     </label><br><br>

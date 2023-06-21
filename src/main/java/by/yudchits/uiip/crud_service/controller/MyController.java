@@ -7,6 +7,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import java.util.List;
 
@@ -38,5 +39,14 @@ public class MyController {
         service.saveOrUpdateStudent(student);
 
         return "redirect:/";
+    }
+
+    @RequestMapping("/update-details")
+    public String updateStudent(@RequestParam("id") long id, Model model){
+        Student student = service.findById(id);
+
+        model.addAttribute("student", student);
+
+        return "add-update-student-view";
     }
 }
