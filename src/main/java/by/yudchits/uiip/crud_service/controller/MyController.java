@@ -49,4 +49,13 @@ public class MyController {
 
         return "add-update-student-view";
     }
+
+    @RequestMapping("/delete-student")
+    public String deleteStudent(@RequestParam("id") long id){
+        Student student = service.findById(id);
+
+        service.deleteStudent(student);
+
+        return "redirect:/";
+    }
 }

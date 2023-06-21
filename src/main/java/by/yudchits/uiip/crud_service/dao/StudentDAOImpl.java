@@ -9,7 +9,7 @@ import org.springframework.stereotype.Repository;
 import java.util.List;
 
 @Repository
-public class StudentDAOImpl implements StudentDAO{
+public class StudentDAOImpl implements StudentDAO {
 
     @Autowired
     private SessionFactory factory;
@@ -33,5 +33,12 @@ public class StudentDAOImpl implements StudentDAO{
         Session session = factory.getCurrentSession();
 
         session.saveOrUpdate(student);
+    }
+
+    @Override
+    public void deleteStudent(Student student) {
+        Session session = factory.getCurrentSession();
+
+        session.delete(student);
     }
 }

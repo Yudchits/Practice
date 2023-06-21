@@ -10,6 +10,7 @@
 
 <form:form action="save-update-student" modelAttribute="student">
 
+<%--    When we are updating details we should know about 'id'--%>
     <form:hidden path="id"/>
 
     <label id="name">

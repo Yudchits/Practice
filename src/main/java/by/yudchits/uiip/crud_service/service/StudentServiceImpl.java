@@ -9,7 +9,7 @@ import javax.transaction.Transactional;
 import java.util.List;
 
 @Service
-public class StudentServiceImpl implements StudentService{
+public class StudentServiceImpl implements StudentService {
 
     @Autowired
     private StudentDAO dao;
@@ -30,5 +30,11 @@ public class StudentServiceImpl implements StudentService{
     @Transactional
     public void saveOrUpdateStudent(Student student) {
         dao.saveOrUpdateStudent(student);
+    }
+
+    @Override
+    @Transactional
+    public void deleteStudent(Student student) {
+        dao.deleteStudent(student);
     }
 }

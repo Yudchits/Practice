@@ -9,4 +9,5 @@ public interface StudentService {
     List<Student> findAllStudents();
     void saveOrUpdateStudent(Student student);
     Student findById(long id);
+    void deleteStudent(Student student);
 }

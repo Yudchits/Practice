@@ -28,6 +28,10 @@
                 <c:param name="id" value="${student.id}"/>
             </c:url>
 
+            <c:url var="delete_button" value="/delete-student">
+                <c:param name="id" value="${student.id}"/>
+            </c:url>
+
             <tr>
                 <td>${student.name}</td>
                 <td>${student.surname}</td>
@@ -36,6 +40,8 @@
                 <td>
                     <input type="button" value="Update"
                     onclick="window.location.href='${update_button}'">
+                    <input type="button" value="Delete"
+                    onclick="window.location.href='${delete_button}'">
                 </td>
             </tr>
 
