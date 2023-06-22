@@ -10,7 +10,7 @@
 
 <form:form action="save-update-student" modelAttribute="student">
 
-<%--    When we are updating details we should know about 'id'--%>
+<%--    When we are updating details we should know 'id'--%>
     <form:hidden path="id"/>
 
     <label id="name">
@@ -24,7 +24,7 @@
     </label><br><br>
 
     <label id="avg_grade">
-        Average grade: <form:input type="number" step="0.1" min="0" max="10" path="averageGrade" id="avg_grade"/>
+        Average grade: <form:input type="number" step="0.1" path="averageGrade" id="avg_grade"/>
         <form:errors path="averageGrade"/>
     </label><br><br>
 
