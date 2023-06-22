@@ -22,7 +22,7 @@ public class Student {
     @Column(name = "surname")
     private String surname;
 
-    @Digits(integer = 2,fraction = 2, message = "The field can have only digits")
+    @Digits(integer = 2,fraction = 2, message = "Number of digits in fractional part cannot be more than 1")
     @Min(value = 0, message = "An average grade cannot be less than 0")
     @Max(value = 10, message = "An average grade cannot be more than 10")
     @Column(name = "avg_grade")
