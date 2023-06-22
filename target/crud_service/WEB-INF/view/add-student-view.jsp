@@ -8,7 +8,7 @@
 <h1>Student details:</h1>
 <br><br>
 
-<form:form action="save-update-student" modelAttribute="student">
+<form:form action="save-student" modelAttribute="student">
 
 <%--    When we are updating details we should know 'id'--%>
     <form:hidden path="id"/>

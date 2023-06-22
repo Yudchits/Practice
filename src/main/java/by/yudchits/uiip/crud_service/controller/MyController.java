@@ -8,6 +8,7 @@ import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import javax.validation.Valid;
@@ -19,7 +20,7 @@ public class MyController {
     @Autowired
     private StudentService service;
 
-    @RequestMapping("/")
+    @RequestMapping(value = "/")
     public String showAllStudents(Model model) {
         List<Student> students = service.findAllStudents();
 
@@ -33,10 +34,10 @@ public class MyController {
 
         model.addAttribute("student", new Student());
 
-        return "add-update-student-view";
+        return "add-student-view";
     }
 
-    @RequestMapping("/save-update-student")
+    @RequestMapping(value = "/save-student")
     public String saveStudent(@Valid @ModelAttribute("student") Student student, BindingResult bindingResult) {
         List<Student> students = service.findAllStudents();
 
@@ -47,7 +48,7 @@ public class MyController {
         }
 
         if (bindingResult.hasErrors()) {
-            return "add-update-student-view";
+            return "add-student-view";
 
         } else {
             service.saveOrUpdateStudent(student);
@@ -62,10 +63,21 @@ public class MyController {
 
         model.addAttribute("student", student);
 
-        return "add-update-student-view";
+        return "update-student-view";
     }
 
-    @RequestMapping("/delete-student")
+    @RequestMapping(value = "/change-details")
+    public String changeInfoAboutStudent(@Valid @ModelAttribute("student") Student student, BindingResult bindingResult){
+        if(bindingResult.hasErrors()){
+            return "update-student-view";
+        } else {
+            service.saveOrUpdateStudent(student);
+
+            return "redirect:/";
+        }
+    }
+
+    @RequestMapping(value = "/delete-student")
     public String deleteStudent(@RequestParam("id") long id) {
         Student student = service.findById(id);
 
